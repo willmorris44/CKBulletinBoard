@@ -8,20 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		E40692C122A5837E00FCB1CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40692C022A5837E00FCB1CF /* AppDelegate.swift */; };
-		E40692C322A5837E00FCB1CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40692C222A5837E00FCB1CF /* ViewController.swift */; };
 		E40692C622A5837E00FCB1CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E40692C422A5837E00FCB1CF /* Main.storyboard */; };
 		E40692C822A5838400FCB1CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E40692C722A5838400FCB1CF /* Assets.xcassets */; };
 		E40692CB22A5838400FCB1CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E40692C922A5838400FCB1CF /* LaunchScreen.storyboard */; };
+		E4F1BCF622A5874900F13EE7 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4F1BCF522A5874900F13EE7 /* CloudKit.framework */; };
+		E4F1BCF822A5875A00F13EE7 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F1BCF722A5875A00F13EE7 /* Message.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E40692BD22A5837E00FCB1CF /* CKBulletinBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CKBulletinBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E40692C022A5837E00FCB1CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E40692C222A5837E00FCB1CF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E40692C522A5837E00FCB1CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E40692C722A5838400FCB1CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E40692CA22A5838400FCB1CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E40692CC22A5838400FCB1CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E40692D322A585FC00FCB1CF /* CKBulletinBoard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CKBulletinBoard.entitlements; sourceTree = "<group>"; };
+		E4F1BCF522A5874900F13EE7 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		E4F1BCF722A5875A00F13EE7 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4F1BCF622A5874900F13EE7 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +44,7 @@
 			children = (
 				E40692BF22A5837E00FCB1CF /* CKBulletinBoard */,
 				E40692BE22A5837E00FCB1CF /* Products */,
+				E4F1BCF422A5874900F13EE7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +59,31 @@
 		E40692BF22A5837E00FCB1CF /* CKBulletinBoard */ = {
 			isa = PBXGroup;
 			children = (
-				E40692C022A5837E00FCB1CF /* AppDelegate.swift */,
-				E40692C222A5837E00FCB1CF /* ViewController.swift */,
+				E40692D322A585FC00FCB1CF /* CKBulletinBoard.entitlements */,
 				E40692C422A5837E00FCB1CF /* Main.storyboard */,
+				E40692D222A5844B00FCB1CF /* Resources */,
+				E4F1BCF722A5875A00F13EE7 /* Message.swift */,
+			);
+			path = CKBulletinBoard;
+			sourceTree = "<group>";
+		};
+		E40692D222A5844B00FCB1CF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E40692C022A5837E00FCB1CF /* AppDelegate.swift */,
 				E40692C722A5838400FCB1CF /* Assets.xcassets */,
 				E40692C922A5838400FCB1CF /* LaunchScreen.storyboard */,
 				E40692CC22A5838400FCB1CF /* Info.plist */,
 			);
-			path = CKBulletinBoard;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E4F1BCF422A5874900F13EE7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E4F1BCF522A5874900F13EE7 /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +118,14 @@
 				TargetAttributes = {
 					E40692BC22A5837E00FCB1CF = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -135,8 +165,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E40692C322A5837E00FCB1CF /* ViewController.swift in Sources */,
 				E40692C122A5837E00FCB1CF /* AppDelegate.swift in Sources */,
+				E4F1BCF822A5875A00F13EE7 /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,8 +312,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CKBulletinBoard/CKBulletinBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = CKBulletinBoard/Info.plist;
+				DEVELOPMENT_TEAM = C5UGU936UZ;
+				INFOPLIST_FILE = "$(SRCROOT)/CKBulletinBoard/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -299,8 +331,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CKBulletinBoard/CKBulletinBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = CKBulletinBoard/Info.plist;
+				DEVELOPMENT_TEAM = C5UGU936UZ;
+				INFOPLIST_FILE = "$(SRCROOT)/CKBulletinBoard/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
