@@ -13,6 +13,8 @@
 		E40692CB22A5838400FCB1CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E40692C922A5838400FCB1CF /* LaunchScreen.storyboard */; };
 		E4F1BCF622A5874900F13EE7 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4F1BCF522A5874900F13EE7 /* CloudKit.framework */; };
 		E4F1BCF822A5875A00F13EE7 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F1BCF722A5875A00F13EE7 /* Message.swift */; };
+		E4F1BCFA22A5BAED00F13EE7 /* MessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F1BCF922A5BAED00F13EE7 /* MessageController.swift */; };
+		E4F1BCFC22A5C01300F13EE7 /* MessageListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F1BCFB22A5C01300F13EE7 /* MessageListTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		E40692D322A585FC00FCB1CF /* CKBulletinBoard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CKBulletinBoard.entitlements; sourceTree = "<group>"; };
 		E4F1BCF522A5874900F13EE7 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		E4F1BCF722A5875A00F13EE7 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		E4F1BCF922A5BAED00F13EE7 /* MessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageController.swift; sourceTree = "<group>"; };
+		E4F1BCFB22A5C01300F13EE7 /* MessageListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				E40692C422A5837E00FCB1CF /* Main.storyboard */,
 				E40692D222A5844B00FCB1CF /* Resources */,
 				E4F1BCF722A5875A00F13EE7 /* Message.swift */,
+				E4F1BCF922A5BAED00F13EE7 /* MessageController.swift */,
+				E4F1BCFB22A5C01300F13EE7 /* MessageListTableViewController.swift */,
 			);
 			path = CKBulletinBoard;
 			sourceTree = "<group>";
@@ -166,7 +172,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E40692C122A5837E00FCB1CF /* AppDelegate.swift in Sources */,
+				E4F1BCFA22A5BAED00F13EE7 /* MessageController.swift in Sources */,
 				E4F1BCF822A5875A00F13EE7 /* Message.swift in Sources */,
+				E4F1BCFC22A5C01300F13EE7 /* MessageListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
