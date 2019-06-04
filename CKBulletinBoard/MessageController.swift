@@ -19,11 +19,9 @@ class MessageController {
     //CRUD
     
     //Create
-    func createMessage(text: String, timestamp: Date) {
+    func createMessage(text: String, timestamp: Date, completion: @escaping (Bool) -> Void) {
         let message = Message(text: text, timestamp: timestamp)
-        self.saveMessage(message: message) { (_) in
-            
-        }
+        self.saveMessage(message: message, completion: completion)
     }
     //Remove / Delete
     func removeMessage(message: Message, completion: @escaping (Bool) -> ()) {
@@ -36,6 +34,8 @@ class MessageController {
                 print("... There was an error in \(#function) : \(error) : \(error.localizedDescription)")
                 completion(false)
                 return
+            } else {
+                completion(true)
             }
         }
     }
@@ -71,5 +71,56 @@ class MessageController {
             self.messages = messages
             completion(true)
         }
+    }
+    
+    func subscribeToNotifications(completion: @escaping (Error?) -> Void) {
+        
+        let predicate = NSPredicate(value: true)
+        
+        let subscription = CKQuerySubscription(recordType: Constants.recordKey, predicate: predicate, options: .firesOnRecordCreation)
+        
+        let notificationInfo = CKSubscription.NotificationInfo()
+        notificationInfo.alertBody = "New Post! Would you like to look?"
+        notificationInfo.shouldBadge = true
+        notificationInfo.soundName = "default"
+        
+        subscription.notificationInfo = notificationInfo
+        
+        privateDB.save(subscription) { (_, error) in
+            if let error = error {
+                print("Subscription did not save: \(error.localizedDescription)")
+                completion(error)
+                return
+            }
+            completion(nil)
+        }
+    }
+    
+    func requestDiscoverabilityAuth(completion: @escaping (CKContainer_Application_PermissionStatus, Error?) -> Void) {
+        CKContainer.default().status(forApplicationPermission: .userDiscoverability) { (status, error) in
+            guard status != .granted else { completion(.granted, error); return }
+            
+            CKContainer.default().requestApplicationPermission(.userDiscoverability, completionHandler: completion)
+        }
+    }
+    
+    func fetchAllDiscoverableUsers(completion: @escaping ([CKUserIdentity], Error?) -> Void) {
+        let discoverIdentities = CKDiscoverAllUserIdentitiesOperation()
+        
+        var discoverdIds: [CKUserIdentity] = []
+        
+        discoverIdentities.userIdentityDiscoveredBlock = { identity in
+            discoverdIds.append(identity)
+        }
+        
+        discoverIdentities.discoverAllUserIdentitiesCompletionBlock = { error in
+            completion(discoverdIds, error)
+        }
+        
+        CKContainer.default().add(discoverIdentities)
+    }
+    
+    func fetchUserIdentityWith(email: String, completion: @escaping (CKUserIdentity?, Error?) -> Void) {
+        CKContainer.default().discoverUserIdentity(withEmailAddress: email, completionHandler: completion)
     }
 }
